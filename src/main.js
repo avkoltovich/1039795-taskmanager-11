@@ -1,6 +1,6 @@
 'use strict';
 
-const TASK_NUMBER = 3;
+const NUMBER_OF_TASKS = 3;
 const siteMainContent = document.querySelector(`.main`);
 const siteControlContainer = siteMainContent.querySelector(`.main__control`);
 
@@ -396,7 +396,7 @@ const renderBoard = () => {
   const taskList = boardContainer.querySelector(`.board__tasks`);
   insertComponent(boardContainer, `afterbegin`, createSortingTaskTemplate());
   insertComponent(taskList, `beforeend`, createAddTaskCardTemplate());
-  renderTaskList(taskList, `beforeend`, createTaskCardTemplate(), TASK_NUMBER);
+  renderTaskList(taskList, `beforeend`, createTaskCardTemplate(), NUMBER_OF_TASKS);
   insertComponent(boardContainer, `beforeend`, createLoadMoreButtonTemplate());
 };
 
