@@ -44,7 +44,7 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => {
     .join(`\n`);
 };
 
-const createTaskAddTemplate = (task) => {
+const createTaskEditTemplate = (task) => {
   const {description, dueDate, color, repeatingDays} = task;
 
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
@@ -137,4 +137,4 @@ const createTaskAddTemplate = (task) => {
   );
 };
 
-export {createTaskAddTemplate};
+export {createTaskEditTemplate};

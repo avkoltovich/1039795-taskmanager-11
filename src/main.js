@@ -2,7 +2,7 @@ import {createTaskManagerMenuTemplate} from './components/menu.js';
 import {createFilterTemplate} from './components/filter';
 import {createBoardTemplate} from './components/board.js';
 import {createSortingTaskTemplate} from './components/sorting.js';
-import {createTaskAddTemplate} from './components/task-add.js';
+import {createTaskEditTemplate} from './components/task-edit.js';
 import {createTaskTemplate} from './components/task.js';
 import {createLoadMoreButtonTemplate} from './components/load-more-button.js';
 import {generateTasks} from './mocks/task.js';
@@ -26,7 +26,7 @@ const renderHeader = () => {
 };
 
 const createTasksList = (position, tasks, tasksCount) => {
-  insertComponent(position, `beforeend`, createTaskAddTemplate(tasks[0]));
+  insertComponent(position, `beforeend`, createTaskEditTemplate(tasks[0]));
   tasks.slice(1, tasksCount).forEach((task) => insertComponent(position, `beforeend`, createTaskTemplate(task)));
 };
 
