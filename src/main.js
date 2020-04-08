@@ -1,3 +1,4 @@
+import {TASKS_COUNT, SHOWING_TASKS_COUNT_ON_START, SHOWING_TASKS_COUNT_BY_BUTTON} from '../const.js';
 import {createTaskManagerMenuTemplate} from './components/menu.js';
 import {createFilterTemplate} from './components/filter';
 import {createBoardTemplate} from './components/board.js';
@@ -7,10 +8,6 @@ import {createTaskTemplate} from './components/task.js';
 import {createLoadMoreButtonTemplate} from './components/load-more-button.js';
 import {generateTasks} from './mocks/task.js';
 import {generateFilters} from './mocks/filter.js';
-
-const TASKS_COUNT = 22;
-const SHOWING_TASKS_COUNT_ON_START = 8;
-const SHOWING_TASKS_COUNT_BY_BUTTON = 8;
 
 const siteMainContent = document.querySelector(`.main`);
 
