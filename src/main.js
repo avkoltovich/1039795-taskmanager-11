@@ -9,7 +9,7 @@ import SiteMenuComponent from "./components/menu.js";
 import SortComponent from "./components/sorting.js";
 import {generateTasks} from './mocks/task.js';
 import {generateFilters} from './mocks/filter.js';
-import {InsertionPosition, render} from "./utils/render.js";
+import {InsertionPosition, render, remove} from "./utils/render.js";
 
 const TASKS_COUNT = 22;
 const SHOWING_TASKS_COUNT_ON_START = 8;
@@ -86,8 +86,7 @@ const renderBoard = (boardComponent, tasks) => {
       .forEach((task) => renderTask(taskListElement, task));
 
     if (showingTasksCount >= tasks.length) {
-      loadMoreButtonComponent.getElement().remove();
-      loadMoreButtonComponent.removeElement();
+      remove(loadMoreButtonComponent);
     }
   });
 };
