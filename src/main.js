@@ -9,7 +9,7 @@ import SiteMenuComponent from "./components/menu.js";
 import SortComponent from "./components/sorting.js";
 import {generateTasks} from './mocks/task.js';
 import {generateFilters} from './mocks/filter.js';
-import {InsertionPosition, render} from "./utils.js";
+import {InsertionPosition, render} from "./utils/render.js";
 
 const TASKS_COUNT = 22;
 const SHOWING_TASKS_COUNT_ON_START = 8;
@@ -53,19 +53,19 @@ const renderTask = (taskListElement, task) => {
     document.removeEventListener(`keydown`, onEscKeyDown);
   });
 
-  render(taskListElement, taskComponent.getElement(), InsertionPosition.BEFOREEND);
+  render(taskListElement, taskComponent, InsertionPosition.BEFOREEND);
 };
 
 const renderBoard = (boardComponent, tasks) => {
   const isAllTasksArchived = tasks.every((task) => task.isArchive);
 
   if (isAllTasksArchived) {
-    render(boardComponent.getElement(), new NoTasksComponent().getElement(), InsertionPosition.BEFOREEND);
+    render(boardComponent.getElement(), new NoTasksComponent(), InsertionPosition.BEFOREEND);
     return;
   }
 
-  render(boardComponent.getElement(), new SortComponent().getElement(), InsertionPosition.BEFOREEND);
-  render(boardComponent.getElement(), new TasksComponent().getElement(), InsertionPosition.BEFOREEND);
+  render(boardComponent.getElement(), new SortComponent(), InsertionPosition.BEFOREEND);
+  render(boardComponent.getElement(), new TasksComponent(), InsertionPosition.BEFOREEND);
 
   const taskListElement = boardComponent.getElement().querySelector(`.board__tasks`);
 
@@ -76,7 +76,7 @@ const renderBoard = (boardComponent, tasks) => {
     });
 
   const loadMoreButtonComponent = new LoadMoreButtonComponent();
-  render(boardComponent.getElement(), loadMoreButtonComponent.getElement(), InsertionPosition.BEFOREEND);
+  render(boardComponent.getElement(), loadMoreButtonComponent, InsertionPosition.BEFOREEND);
 
   loadMoreButtonComponent.getElement().addEventListener(`click`, () => {
     const prevTasksCount = showingTasksCount;
@@ -92,9 +92,9 @@ const renderBoard = (boardComponent, tasks) => {
   });
 };
 
-render(siteHeaderElement, new SiteMenuComponent().getElement(), InsertionPosition.BEFOREEND);
-render(siteMainElement, new FilterComponent(randomFilters).getElement(), InsertionPosition.BEFOREEND);
+render(siteHeaderElement, new SiteMenuComponent(), InsertionPosition.BEFOREEND);
+render(siteMainElement, new FilterComponent(randomFilters), InsertionPosition.BEFOREEND);
 
 const boardComponent = new BoardComponent();
-render(siteMainElement, boardComponent.getElement(), InsertionPosition.BEFOREEND);
+render(siteMainElement, boardComponent, InsertionPosition.BEFOREEND);
 renderBoard(boardComponent, randomTasks);
