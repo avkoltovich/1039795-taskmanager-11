@@ -128,6 +128,7 @@ export default class BoardController {
       taskListElement.innerHTML = ``;
 
       renderTasks(taskListElement, sortedTasks);
+      remove(this._loadMoreButtonComponent);
       renderLoadMoreButton();
     });
   }
