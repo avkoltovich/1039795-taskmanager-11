@@ -1,6 +1,6 @@
 import TaskComponent from "../components/task.js";
 import TaskEditComponent from "../components/task-edit.js";
-import {render, replace, InsertionPosition} from "../utils/render.js";
+import {render, replace, RenderPosition} from "../utils/render.js";
 
 export default class TaskController {
   constructor(container) {
@@ -21,7 +21,7 @@ export default class TaskController {
       this._replaceEditToTask();
     });
 
-    render(this._container, this._taskComponent, InsertionPosition.BEFOREEND);
+    render(this._container, this._taskComponent, RenderPosition.BEFOREEND);
   }
 
   _replaceEditToTask() {
