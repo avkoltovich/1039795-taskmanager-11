@@ -5,17 +5,17 @@ const createElement = (template) => {
   return newElement.firstChild;
 };
 
-const InsertionPosition = {
+const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
   BEFOREEND: `beforeend`
 };
 
 const render = (container, component, place) => {
   switch (place) {
-    case InsertionPosition.AFTERBEGIN:
+    case RenderPosition.AFTERBEGIN:
       container.prepend(component.getElement());
       break;
-    case InsertionPosition.BEFOREEND:
+    case RenderPosition.BEFOREEND:
       container.append(component.getElement());
       break;
   }
@@ -38,4 +38,4 @@ const remove = (component) => {
   component.removeElement();
 };
 
-export {createElement, InsertionPosition, render, replace, remove};
+export {createElement, RenderPosition, render, replace, remove};
