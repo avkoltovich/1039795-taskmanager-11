@@ -7,7 +7,7 @@ import StatisticsComponent from "./components/statistics.js";
 import TasksModel from "./models/tasks.js";
 import {render, RenderPosition} from "./utils/render.js";
 
-const AUTHORIZATION = `Basic dXNlckBwYXNzd29yZAo=`;
+const AUTHORIZATION = `Basic dXNlckBw1XN8d29yZAo=`;
 const END_POINT = `https://11.ecmascript.pages.academy/task-manager`;
 
 const dateTo = new Date();
