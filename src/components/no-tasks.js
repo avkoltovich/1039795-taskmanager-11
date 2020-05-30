@@ -1,5 +1,6 @@
 import AbstractComponent from "./abstract-component.js";
 
+
 const createNoTasksTemplate = () => {
   return (
     `<p class="board__no-tasks">
@@ -7,6 +8,7 @@ const createNoTasksTemplate = () => {
     </p>`
   );
 };
+
 
 export default class NoTasks extends AbstractComponent {
   getTemplate() {

@@ -1,5 +1,6 @@
 import AbstractComponent from "./abstract-component.js";
-import {formatTime, formatDate, isOverdueDate} from "../utils/common.js";
+import {formatTime, formatDate} from "../utils/common.js";
+import {isOverdueDate} from "../utils/common.js";
 import {encode} from "he";
 
 
@@ -14,7 +15,13 @@ const createButtonMarkup = (name, isActive = true) => {
   );
 };
 
+// Функцию для генерации HTML-разметки можно превратить в метод класса,
+// однако делать мы этого не будем, потому что это не критично,
+// а функция у нас уже была описана
 const createTaskTemplate = (task) => {
+  // Обратите внимание, что всю работу мы производим заранее.
+  // Внутри шаблонной строки мы не производим никаких вычислений,
+  // потому что внутри большой разметки сложно искать какой-либо код
   const {description: notSanitizedDescription, dueDate, color, repeatingDays} = task;
 
   const isExpired = dueDate instanceof Date && isOverdueDate(dueDate, new Date());
@@ -40,14 +47,17 @@ const createTaskTemplate = (task) => {
             ${archiveButton}
             ${favoritesButton}
           </div>
+
         <div class="card__color-bar">
           <svg class="card__color-bar-wave" width="100%" height="10">
             <use xlink:href="#wave"></use>
           </svg>
         </div>
+
         <div class="card__textarea-wrap">
           <p class="card__text">${description}</p>
         </div>
+
         <div class="card__settings">
           <div class="card__details">
             <div class="card__dates">
